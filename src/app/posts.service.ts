@@ -23,4 +23,10 @@ export class PostsService {
     //console.log(id);
     return this.http.delete('http://localhost/delete.php?id=' + id, httpOptions);
   }
-}
+
+  createPost(post: Posts) {
+    console.log(post);
+    return this.http.post('http://localhost/insert.php', post);
+  }
+  }
+

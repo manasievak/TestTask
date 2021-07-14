@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostsService } from '../posts.service';
+import { Posts } from '../posts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -8,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private _postService: PostsService, private router: Router) { }
   addForm!: FormGroup;
 
   ngOnInit() {
@@ -18,7 +21,12 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.addForm.value);
+    this._postService.createPost(this.addForm.value)
+    .subscribe(data => {
+      this.router.navigate(['view']);
+    })
   }
+
+
 
 }

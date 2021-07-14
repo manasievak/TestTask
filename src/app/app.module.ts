@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export const routes: Routes = [
   { path: '', component: ViewComponent, pathMatch: 'full' },
   { path: 'view', component: ViewComponent },
+  { path: 'add', component: AddComponent },
 ]
 
 @NgModule({
