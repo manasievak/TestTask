@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../posts.service';
 import { Posts } from '../posts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -9,8 +10,9 @@ import { Posts } from '../posts';
 })
 export class ViewComponent implements OnInit {
   posts!: Posts[];
+  // id!: number;
 
-  constructor(private _postService: PostsService) { }
+  constructor(private _postService: PostsService, private router: Router) { }
 
   ngOnInit() {
     this._postService.getPosts()
@@ -24,6 +26,11 @@ export class ViewComponent implements OnInit {
     //console.log(post);
     this._postService.deletePost(post.id!)
     .subscribe();
+  }
+
+  edit(id: number) {
+    // this.id = post.id!;
+    this.router.navigate(['edit/' + id]);
   }
 
 }

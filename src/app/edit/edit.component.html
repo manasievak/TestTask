@@ -1,0 +1,10 @@
+<div>
+    <h2 class="text-center">Edit post</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+        <div class="form-group">
+            <label for="text">Text: </label>
+            <input type="text" formControlName="text" placeholder="Text" name="text" class="form-control" id="text">
+        </div>
+        <button class="btn btn-success" (click)="update()">Edit Post</button>
+    </form>
+</div>

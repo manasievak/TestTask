@@ -9,19 +9,22 @@ import { ViewComponent } from './view/view.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditComponent } from './edit/edit.component';
 
 
 export const routes: Routes = [
   { path: '', component: ViewComponent, pathMatch: 'full' },
   { path: 'view', component: ViewComponent },
   { path: 'add', component: AddComponent },
+  { path: 'edit/:id', component: EditComponent },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     AddComponent,
-    ViewComponent
+    ViewComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
