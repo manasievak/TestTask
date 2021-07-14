@@ -10,6 +10,6 @@
 <div class="row" *ngFor="let item of posts">
     <div class="col-md-6">{{item.text}}</div>
     <div class="col-md-3"><a href="" class="btn btn-success" >Edit</a></div>
-    <div class="col-md-3"><a href="" class="btn btn-danger" (click)="delete(item.id)">Delete</a></div>
+    <div class="col-md-3"><a href="" class="btn btn-danger" (click)="delete(item)">Delete</a></div>
 </div>
 </div>

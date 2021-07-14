@@ -20,4 +20,10 @@ export class ViewComponent implements OnInit {
       });
   }
 
+  delete(post: Posts):void {
+    //console.log(post);
+    this._postService.deletePost(post.id!)
+    .subscribe();
+  }
+
 }
