@@ -8,6 +8,7 @@ import { AddComponent } from './add/add.component';
 import { ViewComponent } from './view/view.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 export const routes: Routes = [
@@ -27,7 +28,8 @@ export const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
