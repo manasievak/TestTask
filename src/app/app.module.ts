@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditComponent } from './edit/edit.component';
 
-
 export const routes: Routes = [
   { path: '', component: ViewComponent, pathMatch: 'full' },
   { path: 'view', component: ViewComponent },

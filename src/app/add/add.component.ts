@@ -23,7 +23,8 @@ export class AddComponent implements OnInit {
   onSubmit() {
     this._postService.createPost(this.addForm.value)
     .subscribe(data => {
-      this.router.navigate(['view']);
+      // this.router.navigate(['view']);
+      window.location.reload();
     })
   }
 

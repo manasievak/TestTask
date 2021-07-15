@@ -28,5 +28,14 @@ export class PostsService {
     console.log(post);
     return this.http.post('http://localhost/insert.php', post);
   }
+
+  getPostById(id: number) {
+    return this.http.get<Posts[]>('http://localhost/getPostById.php?id=' + id, httpOptions);
+  }
+
+  updatePost(post: Posts) {
+    return this.http.put('http://localhost/update.php' + '?id=' + post.id, post);
+  }
+
   }
 

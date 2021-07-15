@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostsService } from '../posts.service';
 import { Posts } from '../posts';
 import { Router, Params, ActivatedRoute } from '@angular/router';
+import { Timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-edit',
@@ -15,21 +16,39 @@ export class EditComponent implements OnInit {
     private router: Router, private routes: ActivatedRoute) { }
   addForm!: FormGroup;
 
-  ngOnInit(): void {
-    const routeParams = this.routes.snapshot.params;
+  @Input() id!: number;
+  @Input() date!: number;
 
-    console.log(routeParams);
+  ngOnInit(): void {
+    // const routeParams = this.routes.snapshot.params;
+
+    // console.log(this.id);
+    // console.log(this.date);
+
+    this._postService.getPostById(this.id)
+    .subscribe((data: any) => {
+      // console.log(data);
+      this.addForm.patchValue(data);
+    });
 
     this.addForm = this.formBuilder.group({
+      id: [''],
       text: ['', Validators.required]
     });
   }
   update() {
-    // this._postService.createPost(this.addForm.value)
-    // .subscribe(data => {
-    //   this.router.navigate(['view']);
-    // })
-    console.log("Update");
+    // console.log(this.addForm.value);
+    this._postService.updatePost(this.addForm.value).subscribe(() => {
+      window.location.reload();
+    });
   }
+
+  delete():void {
+    //console.log(post);
+    this._postService.deletePost(this.id!)
+    .subscribe();
+    window.location.reload();
+  }
+  
 
 }

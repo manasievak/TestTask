@@ -18,7 +18,7 @@ export class ViewComponent implements OnInit {
     this._postService.getPosts()
       .subscribe((data: Posts[]) => {
         this.posts=data;
-        console.log(this.posts);
+        // console.log(this.posts);
       });
   }
 
@@ -31,6 +31,10 @@ export class ViewComponent implements OnInit {
   edit(id: number) {
     // this.id = post.id!;
     this.router.navigate(['edit/' + id]);
+  }
+  add() {
+    // this.id = post.id!;
+    this.router.navigate(['add']);
   }
 
 }
