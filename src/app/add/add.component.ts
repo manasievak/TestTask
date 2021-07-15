@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostsService } from '../posts.service';
 import { Posts } from '../posts';
 import { Router } from '@angular/router';
+import { User } from '../user';
 
 @Component({
   selector: 'app-add',
@@ -13,6 +14,7 @@ export class AddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private _postService: PostsService, private router: Router) { }
   addForm!: FormGroup;
+  @Input() user!: User;
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({

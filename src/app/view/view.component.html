@@ -7,12 +7,19 @@
     <div class="col-md-2">Delete</div>
 </div> -->
 
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Eo_circle_blue_white_letter-k.svg/240px-Eo_circle_blue_white_letter-k.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      SocialNetworkApplication
+    </a>
+  </nav>
+
 <div class="container">
-    <app-add></app-add>
-<div class="row" *ngFor="let item of posts">
+    <app-add [user]="user!" ></app-add>
+<div *ngFor="let item of posts">
     <!-- <div class="col-md-6">{{item.text}}</div>
     <div class="col-md-3"><a href="" class="btn btn-success" (click)="edit(item.id!)">Edit</a></div>
     <div class="col-md-3"><a href="" class="btn btn-danger" (click)="delete(item)">Delete</a></div> -->
-<app-edit [id]="item.id!" [date]="item.date!"></app-edit>
+<app-edit [user]="user!" [id]="item.id!" [date]="item.date!"></app-edit>
 </div>
 </div>

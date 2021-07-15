@@ -4,6 +4,7 @@ import { PostsService } from '../posts.service';
 import { Posts } from '../posts';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { Timestamp } from 'rxjs';
+import { User } from '../user';
 
 @Component({
   selector: 'app-edit',
@@ -16,8 +17,10 @@ export class EditComponent implements OnInit {
     private router: Router, private routes: ActivatedRoute) { }
   addForm!: FormGroup;
 
+
   @Input() id!: number;
   @Input() date!: number;
+  @Input() user!: User;
 
   ngOnInit(): void {
     // const routeParams = this.routes.snapshot.params;

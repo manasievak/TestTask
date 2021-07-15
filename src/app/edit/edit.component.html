@@ -1,8 +1,35 @@
-<div>
-    <!-- <h2 class="text-center">Edit post</h2> -->
+
+
+
+<div class="card" style="width: 40rem; margin: 20px; background-color:#F6F6F6;">
+    <div class="card-body" >
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <img style="width: 100%;" [src]="user.img">
+
+              </div>
+              <div class="col-10">
+                <h5 class="card-title">{{user.name}} {{user.lastname}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
+              </div>
+            </div>
+            </div>
+      <form [formGroup]="addForm" novalidate class="form">
+      <span style="padding: 80px;">
+          <input type="text" formControlName="text" placeholder="Text" name="text" class="card-text form-control" id="text">
+     </span>
+        </form>
+    <button class="btn btn-link" (click)="update()">Edit Post</button>
+    <button class="btn btn-link" (click)="delete()">Delete Post</button>
+    </div>
+  </div>
+
+<!-- <div>
+    <h2 class="text-center">Edit post</h2>
     <form [formGroup]="addForm" novalidate class="form">
         <div class="form-group">
-            <label for="text">Klara Manasieva </label>
+            <label for="text">{{user.name}} {{user.lastname}}</label>
             <input type="text" formControlName="text" placeholder="Text" name="text" class="form-control" id="text">
         </div>
         
@@ -11,4 +38,4 @@
         
         <button class="btn btn-danger" (click)="delete()">Delete Post</button>
     </form>
-</div>
+</div> -->

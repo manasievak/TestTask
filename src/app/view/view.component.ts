@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ViewComponent implements OnInit {
   posts!: Posts[];
-  user!: User[];
+  user!: User;
   // id!: number;
 
   constructor(private _postService: PostsService, private router: Router) { }
@@ -19,7 +19,7 @@ export class ViewComponent implements OnInit {
   ngOnInit() {
     this._postService.getUsers()
       .subscribe((data: User[]) => {
-        this.user=data;
+        this.user=data[0];
         // console.log(this.posts);
       });
     this._postService.getPosts()
