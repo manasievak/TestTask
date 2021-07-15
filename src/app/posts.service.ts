@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Posts } from './posts';
+import { User } from './user';
 import { HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
@@ -18,6 +19,9 @@ export class PostsService {
 
   getPosts() {
     return this.http.get<Posts[]>('http://localhost/list.php');
+  }
+  getUsers() {
+    return this.http.get<User[]>('http://localhost/getUsers.php');
   }
   deletePost(id:number) {
     //console.log(id);

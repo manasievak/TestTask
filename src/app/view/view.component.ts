@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../posts.service';
 import { Posts } from '../posts';
+import { User } from '../user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +11,17 @@ import { Router } from '@angular/router';
 })
 export class ViewComponent implements OnInit {
   posts!: Posts[];
+  user!: User[];
   // id!: number;
 
   constructor(private _postService: PostsService, private router: Router) { }
 
   ngOnInit() {
+    this._postService.getUsers()
+      .subscribe((data: User[]) => {
+        this.user=data;
+        // console.log(this.posts);
+      });
     this._postService.getPosts()
       .subscribe((data: Posts[]) => {
         this.posts=data;

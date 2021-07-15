@@ -16,11 +16,13 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      text: ['', Validators.required]
+      text: ['', Validators.required],
+      user_id: [1]
     });
   }
 
   onSubmit() {
+    console.log(this.addForm.value);
     this._postService.createPost(this.addForm.value)
     .subscribe(data => {
       // this.router.navigate(['view']);
